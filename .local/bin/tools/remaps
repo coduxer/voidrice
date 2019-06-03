@@ -5,6 +5,38 @@ xset r rate 300 50
 # Map the caps lock key to super...
 setxkbmap -option caps:super
 # But when it is pressed only once, treat it as escape.
-killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
+#killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Map the menu button to right super as well.
 xmodmap -e 'keycode 135 = Super_R'
+xmodmap -e 'clear control'
+# switch tab and L_Control
+xmodmap -e 'keycode 23 = Control_L NoSymbol Control_L'
+# xmodmap -e 'keycode 37 = Tab ISO_Left_Tab Tab ISO_Left_Tab'
+xmodmap -e 'keycode 250 = Tab ISO_Left_Tab Tab ISO_Left_Tab'
+xmodmap -e 'clear control'
+# switch tab and L_Control
+xmodmap -e 'add control = Control_L'
+xmodmap -e 'add control = Control_R'
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape;Control_L=Tab'
+xset -r 23
+
+# other maps
+# 65 - space
+# 133 - super key
+# 23 - Tab key
+# 37 - L_Control key
+
+# switch space and super
+#xmodmap -e 'keycode 65 = Super_L NoSymbol Super_L'
+#xmodmap -e 'keycode 133 = space NoSymbol space'
+#killall xcape 2>/dev/null ; xcape -e 'Super_L=space'
+
+# switch tab and super
+#xmodmap -e 'keycode  23 = Super_L NoSymbol Super_L'
+#xmodmap -e 'keycode 133 = Tab ISO_Left_Tab Tab ISO_Left_Tab'
+#killall xcape 2>/dev/null ; xcape -e 'Super_L=Tab'
+
+# switch tab and L_Control
+#xmodmap -e 'keycode 23 = Control_L NoSymbol Control_L'
+#xmodmap -e 'keycode 37 = Tab ISO_Left_Tab Tab ISO_Left_Tab'
+#killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape;Control_L=Tab'
