@@ -1,0 +1,11 @@
+#!/bin/sh
+# Map the menu button to right super as well.
+xmodmap -e 'keycode 135 = Super_R'
+# remove control maping so the switch will success
+xmodmap -e 'clear control'
+# switch tab and L_Control
+xmodmap -e 'keycode 23 = Control_L NoSymbol Control_L'
+xmodmap -e 'keycode 250 = Tab ISO_Left_Tab Tab ISO_Left_Tab'
+# return control
+xmodmap -e 'add control = Control_L'
+xmodmap -e 'add control = Control_R'
